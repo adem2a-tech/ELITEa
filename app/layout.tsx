@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: 'Elite Agence | Outils Digitaux Sur Mesure',
   description:
     'Elite Agence developpe les outils digitaux qui font evoluer les entreprises. Applications web sur mesure, automatisation, IA et CRM.',
+  icons: {
+    icon: '/images/creations/elite-logo.png',
+    apple: '/images/creations/elite-logo.png',
+  },
 }
 
 export const viewport: Viewport = {
