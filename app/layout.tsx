@@ -18,7 +18,10 @@ export const metadata: Metadata = {
   description:
     'Elite Agence developpe les outils digitaux qui font evoluer les entreprises. Applications web sur mesure, automatisation, IA et CRM.',
   icons: {
-    icon: '/images/creations/elite-logo.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/creations/elite-logo.png', type: 'image/png' },
+    ],
     apple: '/images/creations/elite-logo.png',
   },
 }
