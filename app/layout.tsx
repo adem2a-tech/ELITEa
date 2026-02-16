@@ -20,7 +20,11 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: '#1a2744',
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -30,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${dmSans.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased min-h-screen overscroll-x-none">{children}</body>
     </html>
   )
 }

@@ -81,7 +81,7 @@ export function GoogleReviewsSection() {
     <section
       ref={ref}
       id="avis"
-      className="relative bg-secondary/50 px-6 py-32 lg:py-40"
+      className="relative bg-secondary/50 px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}

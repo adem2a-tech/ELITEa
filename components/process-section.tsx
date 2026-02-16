@@ -47,7 +47,7 @@ export function ProcessSection() {
     <section
       ref={ref}
       id="processus"
-      className="relative bg-background px-6 py-32 lg:py-40"
+      className="relative bg-background px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}

@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
+import Link from "next/link"
 import { useInView } from "@/hooks/use-in-view"
 import { Send, Mail, Building2, Phone, CheckCircle2, ArrowRight, Sparkles } from "lucide-react"
 
@@ -20,7 +21,7 @@ export function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="relative overflow-hidden bg-background px-6 py-32 lg:py-40"
+      className="relative overflow-hidden bg-background px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       {/* Corner decor */}
       <div className="pointer-events-none absolute left-0 top-0 h-[500px] w-[500px] bg-[radial-gradient(ellipse_at_top_left,hsl(var(--secondary))_0%,transparent_70%)]" />
@@ -68,27 +69,40 @@ export function ContactSection() {
 
             {/* Contact details card */}
             <div
-              className={`mt-12 flex flex-col gap-5 rounded-2xl border border-border/50 bg-card p-7 transition-all duration-1000 delay-500 ${
+              className={`mt-10 flex flex-col gap-5 rounded-2xl border border-border/50 bg-card p-5 transition-all duration-1000 delay-500 sm:mt-12 sm:p-7 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
               {[
-                { icon: Mail, label: "Email", value: "wessence2a@gmail.com" },
-                { icon: Phone, label: "Telephone", value: "07 69 08 10 72" },
-                { icon: Building2, label: "Localisation", value: "Paris, France" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
-                    <item.icon className="h-4.5 w-4.5" />
+                { icon: Mail, label: "Email", value: "wessence2a@gmail.com", href: "mailto:wessence2a@gmail.com" },
+                { icon: Phone, label: "Telephone", value: "07 69 08 10 72", href: "tel:+33769081072" },
+                { icon: Building2, label: "Localisation", value: "Paris, France", href: undefined },
+              ].map((item) => {
+                const content = (
+                  <>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
+                      <item.icon className="h-4.5 w-4.5" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/60">
+                        {item.label}
+                      </p>
+                      <p className="text-sm font-medium text-foreground">{item.value}</p>
+                    </div>
+                  </>
+                )
+                return (
+                  <div key={item.label} className="flex min-h-[52px] items-center gap-4 touch-manipulation">
+                    {item.href ? (
+                      <Link href={item.href} className="flex flex-1 items-center gap-4 rounded-lg transition-colors active:bg-secondary/50 hover:bg-secondary/30 -m-2 p-2">
+                        {content}
+                      </Link>
+                    ) : (
+                      <div className="flex flex-1 items-center gap-4">{content}</div>
+                    )}
                   </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/60">
-                      {item.label}
-                    </p>
-                    <p className="text-sm font-medium text-foreground">{item.value}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
@@ -99,7 +113,7 @@ export function ContactSection() {
             }`}
           >
             {submitted ? (
-              <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-border/50 bg-card p-16 text-center">
+              <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-border/50 bg-card p-8 text-center sm:p-16">
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/[0.06] text-primary">
                   <Sparkles className="h-8 w-8" />
                 </div>
@@ -123,7 +137,7 @@ export function ContactSection() {
                   e.preventDefault()
                   setSubmitted(true)
                 }}
-                className="flex flex-col gap-6 rounded-2xl border border-border/50 bg-card p-8 shadow-2xl shadow-foreground/[0.02] lg:p-10"
+                className="flex flex-col gap-6 rounded-2xl border border-border/50 bg-card p-6 shadow-2xl shadow-foreground/[0.02] sm:p-8 lg:p-10"
               >
                 <div>
                   <h3 className="font-heading text-xl font-bold text-foreground">
@@ -144,7 +158,7 @@ export function ContactSection() {
                       type="text"
                       required
                       placeholder="Jean Dupont"
-                      className="rounded-xl border border-input bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25"
+                      className="min-h-[48px] rounded-xl border border-input bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25 touch-manipulation sm:text-sm"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -155,7 +169,7 @@ export function ContactSection() {
                       id="company"
                       type="text"
                       placeholder="Nom de votre entreprise"
-                      className="rounded-xl border border-input bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25"
+                      className="min-h-[48px] rounded-xl border border-input bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25 touch-manipulation sm:text-sm"
                     />
                   </div>
                 </div>
@@ -169,7 +183,7 @@ export function ContactSection() {
                     type="email"
                     required
                     placeholder="jean@entreprise.fr"
-                    className="rounded-xl border border-input bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25"
+                    className="min-h-[48px] rounded-xl border border-input bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25 touch-manipulation sm:text-sm"
                   />
                 </div>
 
@@ -182,13 +196,13 @@ export function ContactSection() {
                     required
                     rows={4}
                     placeholder="Decrivez brievement votre projet, vos besoins et vos objectifs..."
-                    className="resize-none rounded-xl border border-input bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25"
+                    className="min-h-[120px] resize-none rounded-xl border border-input bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/25 touch-manipulation sm:text-sm"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="group mt-2 inline-flex items-center justify-center gap-3 rounded-2xl bg-primary px-6 py-4.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/15 transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
+                  className="group mt-2 inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-2xl bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/15 transition-all duration-300 active:scale-[0.98] hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5 touch-manipulation sm:w-auto sm:py-4.5"
                 >
                   <Send className="h-4 w-4" />
                   Etre recontacte sous 24h

@@ -39,7 +39,7 @@ export function AboutSection() {
     <section
       ref={ref}
       id="about"
-      className="relative overflow-hidden bg-background px-6 py-32 lg:py-40"
+      className="relative overflow-hidden bg-background px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       {/* Decorative corner */}
       <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] bg-[radial-gradient(ellipse_at_top_right,hsl(var(--secondary))_0%,transparent_70%)]" />
@@ -72,7 +72,7 @@ export function AboutSection() {
             </p>
 
             {/* Mini stats row */}
-            <div className="mt-12 grid grid-cols-3 gap-8">
+            <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {[
                 { value: "+25", label: "projets livres" },
                 { value: "100%", label: "satisfaction client" },

@@ -35,7 +35,7 @@ export function GalleryShowcaseSection() {
     <section
       ref={ref}
       id="showcase"
-      className="relative overflow-hidden bg-gradient-to-b from-secondary/50 to-background px-6 py-28 lg:py-36"
+      className="relative overflow-hidden bg-gradient-to-b from-secondary/50 to-background px-4 py-20 sm:px-6 sm:py-24 lg:py-36"
     >
       <div className="relative mx-auto max-w-7xl">
         <div
@@ -96,7 +96,7 @@ export function GalleryShowcaseSection() {
         >
           <Link
             href="/#services"
-            className="group inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition-all hover:border-primary/40 hover:bg-primary/10"
+            className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition-all active:scale-[0.98] hover:border-primary/40 hover:bg-primary/10 touch-manipulation"
           >
             Voir tous nos services
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

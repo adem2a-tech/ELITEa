@@ -78,13 +78,13 @@ export function HeroSection() {
       <div className="absolute top-[50%] left-[50%] h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-400/[0.03] blur-[100px]" />
 
       <div
-        className={`relative z-10 mx-auto max-w-6xl px-6 text-center transition-all duration-1000 ${
+        className={`relative z-10 mx-auto max-w-6xl px-4 text-center transition-all duration-1000 sm:px-6 ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        {/* Trust badge */}
+        {/* Trust badge - responsive */}
         <div
-          className={`mb-10 inline-flex items-center gap-3 rounded-full border border-primary-foreground/[0.08] bg-primary-foreground/[0.04] px-5 py-2.5 transition-all duration-700 delay-300 ${
+          className={`mb-8 flex flex-wrap items-center justify-center gap-2 rounded-full border border-primary-foreground/[0.08] bg-primary-foreground/[0.04] px-4 py-2 transition-all duration-700 delay-300 sm:mb-10 sm:gap-3 sm:px-5 sm:py-2.5 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -123,20 +123,20 @@ export function HeroSection() {
         </p>
 
         <div
-          className={`mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center transition-all duration-1000 delay-[900ms] ${
+          className={`mt-10 flex w-full max-w-sm flex-col items-stretch gap-3 sm:mt-12 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4 transition-all duration-1000 delay-[900ms] ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <Link
             href="/#contact"
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl bg-primary-foreground px-8 py-4.5 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-blue-500/20"
+            className="group relative inline-flex min-h-[48px] items-center justify-center gap-3 overflow-hidden rounded-2xl bg-primary-foreground px-8 py-4 text-sm font-semibold text-primary transition-all duration-300 active:scale-[0.98] hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-blue-500/20 touch-manipulation sm:py-4.5"
           >
             <span className="relative z-10">Demander un appel strategique</span>
             <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="/#services"
-            className="group inline-flex items-center gap-3 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-8 py-4.5 text-sm font-semibold text-primary-foreground/80 transition-all duration-300 hover:bg-primary-foreground/[0.08] hover:text-primary-foreground hover:border-primary-foreground/20"
+            className="group inline-flex min-h-[48px] items-center justify-center gap-3 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] px-8 py-4 text-sm font-semibold text-primary-foreground/80 transition-all duration-300 active:scale-[0.98] hover:bg-primary-foreground/[0.08] hover:text-primary-foreground hover:border-primary-foreground/20 touch-manipulation sm:py-4.5"
           >
             <Play className="h-3.5 w-3.5 fill-current" />
             Decouvrir nos services
@@ -145,7 +145,7 @@ export function HeroSection() {
 
         {/* Client logos marquee */}
         <div
-          className={`mt-24 transition-all duration-1000 delay-[1100ms] ${
+          className={`mt-16 transition-all duration-1000 delay-[1100ms] sm:mt-24 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >

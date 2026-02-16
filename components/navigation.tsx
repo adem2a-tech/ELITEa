@@ -42,22 +42,22 @@ export function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:grid lg:grid-cols-3 lg:px-8">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:grid lg:grid-cols-3 lg:px-8">
         <Link href="/" className="group flex shrink-0 items-center gap-2.5 lg:justify-self-start">
-          <div className={`relative flex h-9 w-24 items-center justify-center overflow-hidden rounded-md transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-28 ${
+          <div className={`relative flex h-10 w-28 shrink-0 items-center justify-center rounded-md px-2 py-1.5 transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-32 ${
             scrolled ? "" : "bg-white/95"
           }`}>
             <Image
               src="/images/creations/elite-logo.png"
               alt="ELITE"
-              width={112}
-              height={40}
-              className="h-9 w-24 scale-110 object-cover object-center sm:h-10 sm:w-28"
+              width={120}
+              height={42}
+              className="max-h-full w-auto max-w-full object-contain"
               priority
             />
           </div>
           <span
-            className={`font-heading text-lg font-bold tracking-tight transition-colors duration-300 ${
+            className={`hidden font-heading text-lg font-bold tracking-tight transition-colors duration-300 sm:inline ${
               scrolled ? "text-foreground" : "text-primary-foreground"
             }`}
           >
@@ -91,10 +91,10 @@ export function Navigation() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle - min 44px touch target */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`lg:hidden rounded-lg p-2.5 transition-colors ${
+          className={`lg:hidden -mr-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-3 transition-colors touch-manipulation ${
             scrolled ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/[0.06]"
           }`}
           aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -107,8 +107,8 @@ export function Navigation() {
       {mobileOpen && (
         <div className="fixed inset-0 top-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-foreground/20 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="relative ml-auto flex h-full w-[85%] max-w-sm flex-col bg-background shadow-2xl animate-slide-in-right">
-            <div className="flex items-center justify-between border-b border-border/60 px-6 py-4">
+          <div className="relative ml-auto flex h-full w-[85%] max-w-sm flex-col bg-background pb-[env(safe-area-inset-bottom)] shadow-2xl animate-slide-in-right">
+            <div className="flex items-center justify-between border-b border-border/60 px-4 py-4 pt-[env(safe-area-inset-top)] sm:px-6">
               <span className="font-heading text-lg font-bold text-foreground">Menu</span>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -124,7 +124,7 @@ export function Navigation() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-secondary"
+                  className="min-h-[48px] rounded-xl px-4 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-secondary active:bg-secondary flex items-center touch-manipulation"
                 >
                   {link.label}
                 </Link>

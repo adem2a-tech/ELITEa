@@ -82,7 +82,7 @@ export function ServicesSection() {
     <section
       ref={ref}
       id="services"
-      className="relative bg-secondary/50 px-6 py-32 lg:py-40"
+      className="relative bg-secondary/50 px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       {/* Background decor */}
       <div className="pointer-events-none absolute left-0 bottom-0 h-[400px] w-[400px] bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--secondary))_0%,transparent_70%)]" />
@@ -171,7 +171,7 @@ export function ServicesSection() {
                 }`}
                 style={{ transitionDelay: `${(i + 6) * 100}ms` }}
               >
-                <div className="relative aspect-[4/3] min-h-[280px] overflow-hidden bg-secondary/50 lg:min-h-[320px]">
+                <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden bg-secondary/50 sm:min-h-[250px] lg:min-h-[320px]">
                   <Image
                     src={item.image}
                     alt={item.title}

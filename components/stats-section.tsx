@@ -49,7 +49,7 @@ export function StatsSection() {
     <section
       ref={ref}
       id="resultats"
-      className="relative overflow-hidden bg-primary px-6 py-32 lg:py-40"
+      className="relative overflow-hidden bg-primary px-4 py-24 sm:px-6 sm:py-28 lg:py-40"
     >
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(100,150,255,0.06),transparent)]" />
@@ -84,7 +84,7 @@ export function StatsSection() {
             </p>
             <Link
               href="/#contact"
-              className="group mt-10 inline-flex items-center gap-3 rounded-2xl bg-primary-foreground px-8 py-4 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-blue-500/20"
+              className="group mt-8 inline-flex min-h-[48px] items-center justify-center gap-3 rounded-2xl bg-primary-foreground px-8 py-4 text-sm font-semibold text-primary transition-all duration-300 active:scale-[0.98] hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-blue-500/20 touch-manipulation sm:mt-10"
             >
               Lancer votre projet
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -92,11 +92,11 @@ export function StatsSection() {
           </div>
 
           {/* Right stats grid */}
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`group flex flex-col rounded-2xl border border-primary-foreground/[0.06] bg-primary-foreground/[0.03] p-8 transition-all duration-700 hover:bg-primary-foreground/[0.06] hover:border-primary-foreground/[0.1] ${
+                className={`group flex flex-col rounded-2xl border border-primary-foreground/[0.06] bg-primary-foreground/[0.03] p-5 transition-all duration-700 sm:p-8 hover:bg-primary-foreground/[0.06] hover:border-primary-foreground/[0.1] ${
                   isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${(i + 1) * 150}ms` }}
